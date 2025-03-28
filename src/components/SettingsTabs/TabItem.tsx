@@ -1,6 +1,7 @@
 "use client";
 import type { FC } from "react";
 import * as Tabs from "@radix-ui/react-tabs";
+import {motion} from "motion/react";
 
 export interface TabItemProps {
   value: string;
@@ -15,7 +16,7 @@ export const TabItem: FC<TabItemProps> = ({ value, title,isSelected=false }) => 
       className="relative px-1 pb-4 text-sm font-medium text-zinc-500 hover:text-violet-700 data-[state=active]:text-violet-700"
     >
       <span className="">{title}</span>
-      {isSelected && <div className="absolute transition-all -bottom-px left-0 right-0 h-0.5 bg-violet-700 "/>}
+      {isSelected && <motion.div layoutId="activeTab" className="absolute -bottom-px left-0 right-0 h-0.5 bg-violet-700 "/>}
     </Tabs.Trigger>
   );
 };

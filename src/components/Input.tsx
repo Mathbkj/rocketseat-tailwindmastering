@@ -12,10 +12,14 @@ interface ControlProps extends ComponentProps<'input'>{};
 
 
 export function Control(props:ControlProps){
-    return <input {...props} placeholder="Search" className="flex-1 border-0 bg-transparent p-0 text-zinc-900 placeholder-zinc-600 outline-none"/>
+    return <input {...props} placeholder={props.placeholder || "Search"} className="flex-1 border-0 bg-transparent px-3 pt-0.5 text-zinc-900 placeholder-zinc-600 outline-none"/>
 }
 export interface RootProps extends ComponentProps<"div"> {}
 
-export function Root(props:RootProps){
-    return <div className="flex w-full items-center gap-2 rounded-lg border border-zinc-300 px-3 py-2 shadow-sm" {...props}/>
+export function Root({
+    className,
+		...props
+	}:RootProps){
+    const baseClassName="flex w-full items-center gap-2 rounded-lg border border-zinc-300 px-3 py-2 shadow-sm"
+    return <div className={`${baseClassName} ${className || ""}`} {...props}/>
 }
