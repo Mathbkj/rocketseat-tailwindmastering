@@ -84,7 +84,7 @@ export default function Home() {
             <FileInput.UserPreview />
             <FileInput.Main className="flex-1 justify-center items-center">
               <FileInput.Trigger />
-              <FileInput.Control multiple />
+              <FileInput.Control multiple={false} />
             </FileInput.Main>
           </FileInput.Root>
           {/**User Uploader End */}
