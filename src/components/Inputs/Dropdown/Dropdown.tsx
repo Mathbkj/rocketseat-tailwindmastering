@@ -7,9 +7,9 @@ import type { PropsWithChildren } from 'react'
  export type SelectItemProps = Select.SelectItemProps & {
    text: string
  }
- interface SelectProps extends PropsWithChildren {
+ type SelectProps  = Select.SelectProps & PropsWithChildren &{
     placeholder: string
-  }
+  } 
  
  export function Item({ text, ...props }: SelectItemProps) {
    return (
@@ -25,9 +25,9 @@ import type { PropsWithChildren } from 'react'
      </Select.Item>
    )
 }
-export function Container({ children, placeholder }: SelectProps) {
+export function Container({ children, placeholder,...props }: SelectProps) {
     return (
-      <Select.Root>
+      <Select.Root {...props}>
         <Select.Trigger className="flex outline-none h-11 w-full items-center justify-between gap-2 rounded-lg border border-zinc-300 px-3 py-2 shadow-sm data-[placeholder]:text-zinc-600">
           <Select.Value
             placeholder={placeholder}
