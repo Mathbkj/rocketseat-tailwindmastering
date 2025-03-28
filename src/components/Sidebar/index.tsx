@@ -5,7 +5,7 @@ import { MainNavigation } from "./MainNavigation";
 import { FooterNavigation } from "./FooterNavigation";
 import { UsedSpaceWidget } from "./UsedSpaceWidget";
 import { Profile } from "./Profile";
-import * as Input from "../Input";
+import * as Input from "../Inputs/Text/TextItem";
 
 export const Sidebar:FC=()=>{
     return <aside className="border-r flex flex-col gap-6 border-zinc-200 px-5 py-8">

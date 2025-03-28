@@ -1,8 +1,11 @@
 import { SettingsTabs } from "@/components/SettingsTabs";
-import * as Input from "@/components/Input";
+import * as Input from "@/components/Inputs/Text/TextItem";
 import { Mail } from "lucide-react";
 import { Line } from "@/components/Line";
 import * as FileInput from "@/components/Uploader/Uploader";
+import { TextInput } from "@/components/Inputs/Text";
+import * as Dropdown from "@/components/Inputs/Dropdown/Dropdown";
+
 export default function Home() {
   return (
     <>
@@ -44,20 +47,8 @@ export default function Home() {
               Name
             </label>
             <div className="flex gap-4">
-              <Input.Root>
-                <Input.Control
-                  placeholder="Name"
-                  id="fName"
-                  defaultValue="Matheus"
-                />
-              </Input.Root>
-              <Input.Root>
-                <Input.Control
-                  placeholder="Last Name"
-                  id="lName"
-                  defaultValue="Godinho"
-                />
-              </Input.Root>
+              <TextInput placeholder="Name" id="fName" defaultValue="Matheus"/>
+              <TextInput placeholder="Last Name" id="lName" defaultValue="Godinho"/>
             </div>
           </div>
           <Line />
@@ -69,17 +60,7 @@ export default function Home() {
               Email
             </label>
             <div className="w-1/3">
-              <Input.Root>
-                <Input.Prefix>
-                  <Mail className="h-5 w-5 text-zinc-500" />
-                </Input.Prefix>
-                <Input.Control
-                  placeholder="Email"
-                  id="email"
-                  type="email"
-                  defaultValue="matheusgblasel@hotmail.com"
-                />
-              </Input.Root>
+              <TextInput hasPrefix icon={Mail} placeholder="Email" id="email" type="email" defaultValue="matheusgblasel@hotmail.com"/>
             </div>
           </div>
           <Line />
@@ -98,9 +79,7 @@ export default function Home() {
             <label htmlFor="role" className="text-sm font-medium text-zinc-700">
               Role
             </label>
-            <Input.Root className="">
-              <Input.Control id="role" defaultValue="CTO" />
-            </Input.Root>
+            <TextInput id="role" defaultValue="CTO"/>
           </div>
           <Line />
           <div className="flex gap-3 items-center">
@@ -110,6 +89,10 @@ export default function Home() {
             >
               Country:
             </label>
+            <Dropdown.Container placeholder="Select a country...">
+               <Dropdown.Item value="br" text="Brazil" />
+                <Dropdown.Item value="us" text="United States" />
+             </Dropdown.Container>
           </div>
           <Line />
           <div className="flex gap-3 items-center">
@@ -119,9 +102,10 @@ export default function Home() {
             >
               Timezone
             </label>
-            <Input.Root>
-              <Input.Control id="timezone" defaultValue="Timezone" />
-            </Input.Root>
+            <Dropdown.Container placeholder="Select a timezone...">
+              <Dropdown.Item value="utc8" text="Pacific Standard Time(UTC-08:00)"/>
+              <Dropdown.Item value="utc3" text="America São Paulo(UTC-03:00)"/>
+            </Dropdown.Container>
           </div>
           <Line />
           <div className="flex flex-col gap-3 items-start">
