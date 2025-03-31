@@ -2,14 +2,14 @@
  
  import * as Select from '@radix-ui/react-select'
  import { Check, ChevronDown } from 'lucide-react'
-import type { PropsWithChildren } from 'react'
+import { useState, useTransition, type PropsWithChildren } from 'react'
  
  export type SelectItemProps = Select.SelectItemProps & {
    text: string
  }
  type SelectProps  = Select.SelectProps & PropsWithChildren &{
     placeholder: string
-  } 
+} 
  
  export function Item({ text, ...props }: SelectItemProps) {
    return (
@@ -28,7 +28,7 @@ import type { PropsWithChildren } from 'react'
 export function Container({ children, placeholder,...props }: SelectProps) {
     return (
       <Select.Root {...props}>
-        <Select.Trigger className="flex outline-none h-11 w-full items-center justify-between gap-2 rounded-lg border border-zinc-300 px-3 py-2 shadow-sm data-[placeholder]:text-zinc-600">
+        <Select.Trigger className="flex outline-none h-11 w-full items-center justify-between gap-2 rounded-lg border border-zinc-300 px-3 py-2 shadow-sm data-[placeholder]:text-zinc-600 focus:border-violet-300 focus:ring-4 focus:ring-violet-100">
           <Select.Value
             placeholder={placeholder}
             className="text-black"
@@ -43,7 +43,7 @@ export function Container({ children, placeholder,...props }: SelectProps) {
             side="bottom"
             position="popper"
             sideOffset={8}
-            className="z-10 w-[var(--radix-select-trigger-width)] overflow-hidden rounded-lg border border-zinc-200 bg-white"
+            className="z-10 w-[var(--radix-select-trigger-width)] overflow-hidden rounded-lg border border-zinc-200 bg-white animate-fade-down"
           >
             <Select.Viewport>{children}</Select.Viewport>
           </Select.Content>

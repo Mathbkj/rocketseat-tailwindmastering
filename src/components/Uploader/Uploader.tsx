@@ -1,15 +1,15 @@
 "use client";
 
 import { formatBytes } from "@/utils/formatBytes";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { User, UploadCloud, Trash2 } from "lucide-react";
 import {
   createContext,
-  useContext,
-  useId,
+  useContext, useId,
   useMemo,
   useState,
   type ChangeEvent,
-  type ComponentProps,
+  type ComponentProps
 } from "react";
 
 interface InputProps extends ComponentProps<"input"> {}
@@ -50,10 +50,12 @@ export function Control({multiple = false,...props}: InputProps) {
   );
 }
 export function FileList() {
+  const [parent] = useAutoAnimate()
   const { files } = useFileInput();
-
+  
   return (
     <div className="mt-4 space-y-3">
+      <div ref={parent} className="mt-4 space-y-3">
       {files.map((file) => {
         const formatedSize = formatBytes(file.size);
         return (
@@ -85,6 +87,8 @@ export function FileList() {
         );
       })}
     </div>
+    </div>
+    
   );
 }
 

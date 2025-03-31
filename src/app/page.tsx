@@ -163,7 +163,7 @@ export default function Home() {
                 </button>
                 </div>
               </div>
-              <textarea id="bio" className="min-h-[120px] outline-none resize-y w-full rounded-lg border border-zinc-300 px-3 py-2 shadow-sm " defaultValue="I'm a web developer based in São Paulo, Brazil. I specialize in UI design integration with data, creating seamless and dynamic user experiences. My tech stack revolves around React and Node.js, allowing me to build full-stack applications that are both efficient and visually compelling."/>
+              <textarea id="bio" className="min-h-[120px] focus:border-violet-300  focus:ring-4 focus:ring-violet-100 outline-none resize-y w-full rounded-lg border border-zinc-300 px-3 py-2 shadow-sm " defaultValue="I'm a web developer based in São Paulo, Brazil. I specialize in UI design integration with data, creating seamless and dynamic user experiences. My tech stack revolves around React and Node.js, allowing me to build full-stack applications that are both efficient and visually compelling."/>
             </div>
           </div>
           <Line />
