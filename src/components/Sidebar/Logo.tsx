@@ -1,6 +1,6 @@
 export const Logo=()=> {
     return (
-      <strong className="flex items-center gap-2 text-xl font-semibold text-zinc-900 mx-1">
+      <strong className="flex items-center gap-2 text-xl font-semibold text-zinc-900 dark:text-zinc-100 mx-1">
         <svg
           width={38}
           height={38}
@@ -204,7 +204,6 @@ export const Logo=()=> {
             </clipPath>
           </defs>
         </svg>
-  
         <span>Untitled UI</span>
       </strong>
     )

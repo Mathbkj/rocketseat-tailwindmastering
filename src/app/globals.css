@@ -1,9 +1,9 @@
 @import "tailwindcss";
-
+@custom-variant dark (&:where(.dark, .dark *));
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --default: minmax(18rem, 20rem) 1fr;
+  --default:minmax(18rem, 20rem) 1fr;
   --profile: max-content 1fr max-content;
   --form: minmax(7.5rem, 17.5rem) minmax(25rem, 1fr) minmax(0, 15rem);
 }
@@ -32,9 +32,24 @@
       opacity: 1;
     }
   }
-  --animate-fade-up: fadeUp 0.4s;
-  --animate-fade-down: fadeDown 0.4s ease;
+  --animate-fade-up: fadeUp 400ms;
+  --animate-fade-down: fadeDown 400ms ease;
 }
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+    transform:translateY(0px);
+	}
+	to {
+		opacity: 1;
+    transform:translateY(.1px);
+	}
+}
+
+.CollapsableContent[data-state="open"]{
+	animation: fadeIn 400ms ease-out;
+}
+
 
 @media (prefers-color-scheme: dark) {
   :root {

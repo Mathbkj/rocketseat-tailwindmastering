@@ -4,7 +4,7 @@ import * as Input from "./TextItem";
 interface BaseProps
   extends Pick<
     ComponentProps<"input">,
-    "id" | "defaultValue" | "placeholder" | "type"
+    "id" | "defaultValue" | "placeholder" | "type" | "className"
   > {}
 
 interface WithPrefixProps extends BaseProps {
@@ -25,14 +25,14 @@ export const TextInput: FC<TextInputProps> = ({
   ...rest
 }) => {
   return (
-    <Input.Root>
+    <Input.Root className={`${rest.className || ""}`}>
       {hasPrefix && (
         <Input.Prefix>
           <Icon className="h-5 w-5 text-zinc-500"/>
         </Input.Prefix>
       )}
       <Input.Control
-      type={rest.type}
+        type={rest.type}
         placeholder={rest.placeholder}
         id={rest.id}
         defaultValue={rest.defaultValue}

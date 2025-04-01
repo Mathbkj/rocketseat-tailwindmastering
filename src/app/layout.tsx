@@ -1,21 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono,Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Sidebar } from "@/components/Sidebar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
-const inter = Inter({
-  variable:"--font-inter",
-  subsets:["latin"]
-})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,15 +20,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${inter.className} antialiased`}
-      >
-        <div className="min-h-screen grid grid-cols-(--default)">
-          <Sidebar/>
-          <main className="px-8 pb-12 pt-8">{children}</main>
-        </div>
-      </body>
+    <html lang="en" suppressHydrationWarning>
+        <body
+          className={`${inter.className} antialiased`}
+        >
+          <div className="min-h-screen lg:grid lg:grid-cols-(--default) dark:bg-zinc-900">
+            <Sidebar />
+            <main className="px-4 pb-12 pt-24 lg:col-start-2 my-10 lg:m-0 lg:px-8 lg:pt-8 max-w-screen">
+              {children}
+            </main>
+          </div>
+        </body>
+     
     </html>
   );
 }
