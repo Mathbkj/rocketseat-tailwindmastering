@@ -183,7 +183,7 @@ export function UserPreview() {
 function UploadPreview() {
   return (
     <div className="rounded-full border-6 border-zinc-50 group-hover:border-violet-50 group-hover:bg-violet-100 bg-zinc-100 p-2 dark:border-zinc-700 dark:bg-zinc-800 dark:group-hover:border-zinc-600 dark:group-hover:bg-zinc-700">
-      <UploadCloud className="h-5 w-5 text-zinc-600 group-hover:text-violet-600 hover:bg-violet-50 dark:text-zinc-500 dark:group-hover:text-violet-300" />
+      <UploadCloud className="h-5 w-5 text-zinc-600 group-hover:text-violet-600  dark:text-zinc-500 dark:group-hover:text-violet-300" />
     </div>
   );
 }

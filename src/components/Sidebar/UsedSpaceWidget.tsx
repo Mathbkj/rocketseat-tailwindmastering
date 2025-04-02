@@ -12,7 +12,7 @@ export const UsedSpaceWidget: FC = () => {
         </p>
       </div>
       <div className="h-2 rounded-full bg-violet-100 dark:bg-zinc-600">
-        <div className="h-2 w-4/5 rounded-full bg-violet-600 dark:bg-violet-400 " />
+        <div className="h-2 w-4/5 rounded-full bg-violet-600 dark:bg-violet-400 "/>
       </div>
       <div className="space-x-3">
         <button
