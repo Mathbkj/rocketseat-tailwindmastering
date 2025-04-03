@@ -25,12 +25,14 @@ export const TextInput: FC<TextInputProps> = ({
   ...rest
 }) => {
   return (
-    <Input.Root className={`${rest.disabled ? "bg-zinc-500/10":""} ${rest.className || ""}`}>
-      {hasPrefix && (
+    <Input.Root
+      className={`${rest.disabled ? "bg-zinc-500/10" : ""} ${rest.className || ""}`}
+    >
+      {hasPrefix && rest.type !== "password" ? (
         <Input.Prefix>
-          <Icon className="h-5 w-5 text-zinc-500"/>
+          <Icon className="h-5 w-5 text-zinc-500" />
         </Input.Prefix>
-      )}
+      ) : null}
       <Input.Control
         type={rest.type}
         placeholder={rest.placeholder}
