@@ -9,12 +9,7 @@ import {
   Link,
   List,
   ListOrdered,
-  Mail,
-  Lock,
-  LockIcon,
-  LockKeyhole,
-  SaveAllIcon,
-  SaveIcon,
+  Mail, LockKeyhole, SaveIcon
 } from "lucide-react";
 import { Line } from "@/components/Line";
 import * as FileInput from "@/components/Uploader/Uploader";
@@ -24,6 +19,10 @@ import { Button } from "@/components/Button";
 import { ProfileImg } from "../ProfileImg";
 import { passedTime } from "@/utils/passedTime";
 import { PassContextProvider } from "@/contexts/PassContext";
+import { ProfileCard } from "../ProfileCard";
+import personaimporter from "@/utils/personaimporter";
+
+
 
 export const SettingsTabs: FC = () => {
   const [currentTab, setCurrentTab] = useState("tab1");
@@ -330,7 +329,7 @@ export const SettingsTabs: FC = () => {
                   </section>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-zinc-500 dark:text-zinc-400">
+                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
                     Profile Information
                   </span>
                 </div>
@@ -404,47 +403,71 @@ export const SettingsTabs: FC = () => {
           </Tabs.Content>
 
           <PassContextProvider>
-          <Tabs.Content value="tab3">
-            <section className="mt-6 flex flex-col">
-              <div className="flex flex-col lg:flex-row gap-4 lg:justify-between border-b border-zinc-200 dark:border-zinc-700 pb-5">
-                <span className="text-lg flex gap-4 font-medium text-zinc-900 dark:text-zinc-100">
-                  Password
-                  <span>
-                    <LockKeyhole/>
+            <Tabs.Content value="tab3">
+              <section className="mt-6 flex flex-col">
+                <div className="flex flex-col lg:flex-row gap-4 lg:justify-between border-b border-zinc-200 dark:border-zinc-700 pb-5">
+                  <span className="text-lg flex gap-4 font-medium text-zinc-900 dark:text-zinc-100">
+                    Password
+                    <span>
+                      <LockKeyhole />
+                    </span>
                   </span>
-                </span>
-                <span className="text-sm text-zinc-500 dark:text-zinc-400">
-                  Chage Current Your Password Here
-                </span>
-              </div>
-              <section className="mt-6 flex flex-col gap-3">
-                <div className="flex flex-col my-2 mx-2 gap-2">
-                  <h1 className="text-nowrap text-zinc-900 dark:text-zinc-200">Current Password</h1>
-                  <TextInput disabled placeholder="Naruto1014" />
+                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                    Chage Current Your Password Here
+                  </span>
                 </div>
-                <div className="flex flex-col my-2 mx-2 gap-2">
-                  <h1 className="text-nowrap text-zinc-900 dark:text-zinc-200">New Password</h1>
-                  <TextInput type="password" placeholder="New Password" />
-                </div>
-              </section>
-              <div className="flex gap-2 items-center pt-5 justify-center">
+                <section className="mt-6 flex flex-col gap-3">
+                  <div className="flex flex-col my-2 mx-2 gap-2">
+                    <h1 className="text-nowrap text-zinc-900 dark:text-zinc-200">
+                      Current Password
+                    </h1>
+                    <TextInput disabled placeholder="Naruto1014" />
+                  </div>
+                  <div className="flex flex-col my-2 mx-2 gap-2">
+                    <h1 className="text-nowrap text-zinc-900 dark:text-zinc-200">
+                      New Password
+                    </h1>
+                    <TextInput type="password" placeholder="New Password" />
+                  </div>
+                </section>
+                <div className="flex gap-2 items-center pt-5 justify-center">
                   <Button type="submit" form="settings">
                     <span className="flex gap-2 items-center">
                       Save Changes
-                      <span><SaveIcon size={16}/></span>
+                      <span>
+                        <SaveIcon size={16} />
                       </span>
+                    </span>
                   </Button>
                 </div>
-            </section>
-          </Tabs.Content>
+              </section>
+            </Tabs.Content>
           </PassContextProvider>
 
           <Tabs.Content value="tab4">
             <section className="mt-6 flex flex-col">
-              
+              <div className="space-y-3 flex flex-col items-center">
+                <div className="gap-1 flex flex-col items-center justify-center">
+                  <span className="text-center font-semibold text-zinc-900 dark:text-zinc-200 text-md">
+                    Our Team
+                  </span>
+                  <span className="text-center font-semibold text-zinc-900 dark:text-zinc-200 text-2xl">
+                    Meet Untitled UI Team
+                  </span>
+                </div>
+                <span className="text-center max-w-[70%] break-words text-zinc-600 dark:text-zinc-400">There are many variations of dashboards and team management tools in the internet, but the majority have suffered in some way by innacurate analysis</span>
+              </div>
+
+              <div className="grid my-3 px-4 pt-5 mt-8 mb-3 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <ProfileCard name="Jacob Cooper" func="Software Engineer" src={personaimporter().jacob} className=""/>
+                <ProfileCard name="Andressa Amerando" func="UI/UX Designer" src={personaimporter().andressa} className=""/>
+                <ProfileCard name="Kate Kent" func="Department Header" src={personaimporter().kate} className=""/>
+                <ProfileCard name="Muria Kennedy" func="3D Modeler" src={personaimporter().muria} className=""/>
+                <ProfileCard name="Rafaela Alejandro" func="Software Engineer" src={personaimporter().rafaela} className=""/>
+                <ProfileCard name="Sarah White" func="UI/UX Designer" src={personaimporter().sarah} className=""/>
+              </div>
             </section>
           </Tabs.Content>
-
         </ScrollArea.Viewport>
         <ScrollArea.Scrollbar
           orientation="horizontal"
