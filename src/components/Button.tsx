@@ -14,9 +14,9 @@ const button = tv({
       ghost:
         "rounded-md px-2 hover:bg-zinc-100/70 dark:hover:bg-white/5 text-zinc-500 dark:text-zinc-300 shadow-none",
       outline:
-        "border border-zinc-300 text-zinc-700  hover:bg-zinc-50 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800",
+        "border border-zinc-300 text-zinc-700  hover:bg-zinc-100/70 dark:border-zinc-700 dark:text-zinc-300 dark:hover:bg-zinc-800",
       filled:
-        "flex my-px bg-zinc-700/10 text-zinc-400 h-13 w-13 dark:bg-zinc-300/10 dark:text-zinc-700 rounded-full max-lg:self-center justify-center items-center",
+        "flex my-px bg-zinc-700/10 text-zinc-400 h-13 w-13 dark:bg-zinc-300/10 dark:text-zinc-500 rounded-full max-lg:self-center justify-center items-center",
     },
   },
   defaultVariants: {

@@ -12,7 +12,7 @@ interface ControlProps extends ComponentProps<'input'>{};
 
 
 export function Control(props:ControlProps){
-return <input {...props} disabled={props.disabled} placeholder={props.placeholder || "Search"} className="border-0 bg-transparent px-3 pt-0.5 text-zinc-900 w-full placeholder-zinc-800 disabled:placeholder-zinc-400 dark:disabled:placeholder-zinc-700 outline-none dark:placeholder-zinc-400 dark:text-zinc-100"/>
+return <input {...props} disabled={props.disabled} placeholder={props.placeholder || "Search"} className="border-0 bg-transparent px-3 pt-0.5 text-zinc-900 w-full placeholder-zinc-800 disabled:placeholder-zinc-400 dark:disabled:placeholder-zinc-700 outline-none disabled:cursor-not-allowed dark:placeholder-zinc-400 dark:text-zinc-100"/>
 }
 export interface RootProps extends ComponentProps<"div"> {}
 

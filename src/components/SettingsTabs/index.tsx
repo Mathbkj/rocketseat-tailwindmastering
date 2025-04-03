@@ -7,9 +7,10 @@ import { Bold, Italic, Link, List, ListOrdered, Mail } from "lucide-react";
 import { Line } from "@/components/Line";
 import * as FileInput from "@/components/Uploader/Uploader";
 import { TextInput } from "@/components/Inputs/Text";
-import * as Dropdown from "@/components/Inputs/Dropdown/Dropdown";
+import * as Dropdown from "@/components/Inputs/Select/Select";
 import { Button } from "@/components/Button";
 import { ProfileImg } from "../ProfileImg";
+import { passedTime } from "@/utils/passedTime";
 
 export const SettingsTabs: FC = () => {
   const [currentTab, setCurrentTab] = useState("tab1");
@@ -351,11 +352,11 @@ export const SettingsTabs: FC = () => {
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                    Language
+                    Github
                   </h1>
                   <Dropdown.Container
                     disabled
-                    placeholder="Portuguese(Brazil)"
+                    placeholder="Mathbkj"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
@@ -380,7 +381,7 @@ export const SettingsTabs: FC = () => {
                       matheusgblasel@hotmail.com
                     </strong>
                     <span className=" text-zinc-500 text-sm dark:text-zinc-400">
-                      1 month ago
+                      {passedTime()}
                     </span>
                   </section>
                   </div>
