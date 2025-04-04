@@ -9,9 +9,20 @@ import {
   Link,
   List,
   ListOrdered,
-  Mail, LockKeyhole, SaveIcon
+  Mail,
+  LockKeyhole,
+  SaveIcon,
+  ChartGantt,
+  Check,
+  Gift,
+  SmartphoneNfc,
+  SignalHigh,
+  Tv,
+  ChartNoAxesCombined,
+  ShieldCheck,
+  Database,
 } from "lucide-react";
-import { Line } from "@/components/Line";
+
 import * as FileInput from "@/components/Uploader/Uploader";
 import { TextInput } from "@/components/Inputs/Text";
 import * as Dropdown from "@/components/Inputs/Select/Select";
@@ -21,8 +32,8 @@ import { passedTime } from "@/utils/passedTime";
 import { PassContextProvider } from "@/contexts/PassContext";
 import { ProfileCard } from "../ProfileCard";
 import personaimporter from "@/utils/personaimporter";
-
-
+import { Logo } from "../Sidebar/Logo";
+import { PlanUnity } from "../PlanUnity";
 
 export const SettingsTabs: FC = () => {
   const [currentTab, setCurrentTab] = useState("tab1");
@@ -137,7 +148,7 @@ export const SettingsTabs: FC = () => {
                     />
                   </div>
                 </div>
-                <Line />
+
                 <div className="flex flex-col lg:flex-row gap-10 lg:items-center pt-1/2">
                   <label
                     htmlFor="email"
@@ -157,7 +168,7 @@ export const SettingsTabs: FC = () => {
                     />
                   </div>
                 </div>
-                <Line />
+
                 {/**User Uploader */}
                 <FileInput.Root className="flex flex-col lg:flex-row gap-10">
                   <FileInput.Description
@@ -171,7 +182,7 @@ export const SettingsTabs: FC = () => {
                   </FileInput.Main>
                 </FileInput.Root>
                 {/**User Uploader End */}
-                <Line />
+
                 <div className="flex flex-col lg:flex-row gap-10 lg:items-center pt-1/2">
                   <label
                     htmlFor="role"
@@ -181,7 +192,7 @@ export const SettingsTabs: FC = () => {
                   </label>
                   <TextInput id="role" defaultValue="CTO" className="flex-1" />
                 </div>
-                <Line />
+
                 <div className="flex flex-col gap-10 lg:flex-row lg:gap-4 lg:items-center pt-1/2">
                   <h1 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
                     Country
@@ -194,7 +205,7 @@ export const SettingsTabs: FC = () => {
                     <Dropdown.Item value="us" text="United States" />
                   </Dropdown.Container>
                 </div>
-                <Line />
+
                 <div className="flex flex-col gap-10 lg:gap-2 lg:flex-row lg:items-center">
                   <h1 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
                     Timezone
@@ -210,7 +221,7 @@ export const SettingsTabs: FC = () => {
                     />
                   </Dropdown.Container>
                 </div>
-                <Line />
+
                 <div className="flex flex-col gap-3">
                   <label
                     htmlFor="bio"
@@ -287,7 +298,7 @@ export const SettingsTabs: FC = () => {
                     />
                   </div>
                 </div>
-                <Line />
+
                 <FileInput.Root className="w-full flex flex-col gap-10 lg:flex-row lg:gap-5 items-startf">
                   <FileInput.Description
                     title="Projects"
@@ -446,7 +457,7 @@ export const SettingsTabs: FC = () => {
 
           <Tabs.Content value="tab4">
             <section className="mt-6 flex flex-col">
-              <div className="space-y-3 flex flex-col items-center">
+              <div className="flex gap-2 flex-col items-center">
                 <div className="gap-1 flex flex-col items-center justify-center">
                   <span className="text-center font-semibold text-zinc-900 dark:text-zinc-200 text-md">
                     Our Team
@@ -455,16 +466,126 @@ export const SettingsTabs: FC = () => {
                     Meet Untitled UI Team
                   </span>
                 </div>
-                <span className="text-center max-w-[70%] break-words text-zinc-600 dark:text-zinc-400">There are many variations of dashboards and team management tools in the internet, but the majority have suffered in some way by innacurate analysis</span>
+                <span className="text-center max-w-[70%] break-words text-zinc-600 dark:text-zinc-400">
+                  There are many variations of dashboards and team management
+                  tools in the internet, but the majority have suffered in some
+                  way by innacurate analysis
+                </span>
               </div>
 
               <div className="grid my-3 px-4 pt-5 mt-8 mb-3 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                <ProfileCard name="Jacob Cooper" func="Software Engineer" src={personaimporter().jacob} className=""/>
-                <ProfileCard name="Andressa Amerando" func="UI/UX Designer" src={personaimporter().andressa} className=""/>
-                <ProfileCard name="Kate Kent" func="Department Header" src={personaimporter().kate} className=""/>
-                <ProfileCard name="Muria Kennedy" func="3D Modeler" src={personaimporter().muria} className=""/>
-                <ProfileCard name="Rafaela Alejandro" func="Software Engineer" src={personaimporter().rafaela} className=""/>
-                <ProfileCard name="Sarah White" func="UI/UX Designer" src={personaimporter().sarah} className=""/>
+                <ProfileCard
+                  name="Jacob Cooper"
+                  func="Software Engineer"
+                  src={personaimporter().jacob}
+                  className=""
+                />
+                <ProfileCard
+                  name="Andressa Amerando"
+                  func="UI/UX Designer"
+                  src={personaimporter().andressa}
+                  className=""
+                />
+                <ProfileCard
+                  name="Kate Kent"
+                  func="Department Header"
+                  src={personaimporter().kate}
+                  className=""
+                />
+                <ProfileCard
+                  name="Muria Kennedy"
+                  func="3D Modeler"
+                  src={personaimporter().muria}
+                  className=""
+                />
+                <ProfileCard
+                  name="Rafaela Alejandro"
+                  func="Software Engineer"
+                  src={personaimporter().rafaela}
+                  className=""
+                />
+                <ProfileCard
+                  name="Sarah White"
+                  func="UI/UX Designer"
+                  src={personaimporter().sarah}
+                  className=""
+                />
+              </div>
+            </section>
+          </Tabs.Content>
+          <Tabs.Content value="tab5">
+            <section className="mt-6 flex flex-col">
+              <div className="flex flex-col lg:flex-row gap-4 lg:justify-between border-b border-zinc-200 dark:border-zinc-700 pb-5">
+                <span className="text-lg flex gap-4 font-medium text-zinc-900 dark:text-zinc-100">
+                  Plans
+                  <span>
+                    <ChartGantt />
+                  </span>
+                </span>
+                <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                  Decide which plan best fits your needs
+                </span>
+              </div>
+              <div className="mt-6 bg-zinc-800/10 dark:bg-zinc-800/30 shadow-sm rounded-md flex flex-col gap-3">
+                <section className="flex items-center lg:flex-row justify-between flex-col px-3 py-2 m-5">
+                  <span className="text-lg  flex flex-col gap-2 text-zinc-950 dark:text-zinc-100">
+                    Choose the plan that best fit your needs
+                    <span className="text-sm flex flex-col text-zinc-600 dark:text-zinc-500">
+                      <span className="flex items-center gap-1">
+                        <Check
+                          size={15}
+                          className="dark:text-violet-300 text-violet-700"
+                        />
+                        Unlimited features developed exclusively for you. Get
+                        your hands on everything.
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Check
+                          size={15}
+                          className="dark:text-violet-300 text-violet-700"
+                        />
+                        Feel free to cancel at any time.
+                      </span>
+                    </span>
+                  </span>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="flex items-center gap-3 px-3 py-2"
+                  >
+                    <Gift />
+                    <span>Start your free month</span>
+                  </Button>
+                </section>
+
+                <section className="flex flex-row flex-nowrap gap-4 px-3 py-2 my-20 mx-8">
+                  <div className="flex flex-col gap-10">
+                    <Logo />
+                    <span className="text-md w-full flex gap-2 ms-2 mt-18 text-zinc-700 dark:text-zinc-300 font-medium">
+                      <SmartphoneNfc size={20} />
+                      Mobile Support
+                    </span>
+                    <span className="text-md w-full flex gap-2 ms-2 text-zinc-700 dark:text-zinc-300 font-medium">
+                      <SignalHigh size={20} />
+                      Available 100% of the time
+                    </span>
+                    <span className="text-md w-full flex gap-2 ms-2 text-zinc-700 dark:text-zinc-300 font-medium">
+                      <Tv size={20} />
+                      Use it on your desktop and TV
+                    </span>
+                    <span className="text-md w-full flex gap-2 ms-2 text-zinc-700 dark:text-zinc-300 font-medium">
+                      <ChartNoAxesCombined size={20} />
+                      Take the best decisions
+                    </span>
+                    <span className="text-md w-full flex gap-2 ms-2 text-zinc-700 dark:text-zinc-300 font-medium">
+                      <Database size={20}/>
+                      Times you can retrieve data per day
+                    </span>
+                  </div>
+                    <PlanUnity title="Basic" cost="7.99"/>
+                    <PlanUnity title="Standard" cost="10.99"/>
+                    <PlanUnity title="Premium" cost="17.99"/>
+                </section>
               </div>
             </section>
           </Tabs.Content>
@@ -479,3 +600,4 @@ export const SettingsTabs: FC = () => {
     </Tabs.Root>
   );
 };
+
