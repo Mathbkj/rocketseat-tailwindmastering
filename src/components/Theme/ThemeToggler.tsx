@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState, type FC } from "react";
-import { Button } from "../Button";
+import { Button } from "../Buttons/Button";
 import { Circle, Moon, Sun } from "lucide-react";
 
 export const ThemeToggler: FC = () => {

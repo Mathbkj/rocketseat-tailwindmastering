@@ -1,4 +1,4 @@
-import { useEffect, useState, type Dispatch, type FC, type PropsWithChildren, type SetStateAction } from "react";
+import { useEffect, useState, type Dispatch, memo, type PropsWithChildren, type SetStateAction } from "react";
 import { createContext } from "react";
 
 interface PassContextProps {
@@ -13,7 +13,7 @@ export const PassContext = createContext<PassContextProps>({
 
 interface PassProviderProps extends PropsWithChildren {}
 
-export const PassContextProvider: FC<PassProviderProps> = ({ children }) => {
+function PassContextProvider ({ children }:PassProviderProps) {
   const [isToggled, setToggled] = useState<boolean>(false);
 
   useEffect(() => {
@@ -28,3 +28,4 @@ export const PassContextProvider: FC<PassProviderProps> = ({ children }) => {
     </PassContext.Provider>
   );
 };
+export default memo(PassContextProvider)

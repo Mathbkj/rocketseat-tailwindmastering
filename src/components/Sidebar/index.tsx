@@ -9,7 +9,7 @@ import { UsedSpaceWidget } from "./UsedSpaceWidget";
 import { Profile } from "./Profile";
 import * as Input from "../Inputs/Text/TextItem";
 import * as Collapsible from "@radix-ui/react-collapsible";
-import { Button } from "../Button";
+import { Button } from "../Buttons/Button";
 import { ThemeToggler } from "../Theme/ThemeToggler";
 
 

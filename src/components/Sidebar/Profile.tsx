@@ -1,6 +1,6 @@
 import { LogOut } from "lucide-react";
 import type { FC } from "react";
-import { Button } from "../Button";
+import { Button } from "../Buttons/Button";
 import { ProfileImg } from "../ProfileImg";
 
 export const Profile:FC=()=>{

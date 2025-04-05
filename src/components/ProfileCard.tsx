@@ -1,6 +1,6 @@
 import { Facebook, Instagram, Twitter } from "lucide-react"
 import Image from "next/image"
-import { Button } from "./Button"
+import { Button } from "./Buttons/Button"
 import type { FC } from "react";
 
 interface Props {

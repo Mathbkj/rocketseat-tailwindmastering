@@ -1,5 +1,5 @@
-import { Button } from "@/components/Button";
-import { PassContext, PassContextProvider } from "@/contexts/PassContext";
+import { Button } from "@/components/Buttons/Button";
+import { PassContext } from "@/contexts/PassContext";
 import { LockIcon, LockOpenIcon } from "lucide-react";
 import { useContext, type ComponentProps } from "react";
 
