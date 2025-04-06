@@ -9,16 +9,16 @@ import {
   type SetStateAction,
 } from "react";
 
-interface ActiveProps {
+interface SelectedProps {
   bold: boolean;
   italic: boolean;
   unordered: boolean;
   ordered: boolean;
 }
-interface BioContextProps extends ActiveProps {
+interface BioContextProps extends SelectedProps {
   initialText: string;
   setInitialText: Dispatch<SetStateAction<string>>;
-  handleActive: (btn: "bold" | "italic" | "unordered" | "ordered") => void;
+  handleSelected: (btn: keyof SelectedProps) => void;
 }
 export const BioContext = createContext<BioContextProps>({
   bold: false,
@@ -28,7 +28,7 @@ export const BioContext = createContext<BioContextProps>({
   initialText:
     "I'm a web developer based in São Paulo, Brazil. I specialize in UI design integration with data, creating seamless and dynamic user experiences. My tech stack revolves around React and Node.js, allowing me to build full-stack applications that are both efficient and visually compelling.",
   setInitialText: () => {},
-  handleActive: () => {
+  handleSelected: () => {
     console.log("default value");
   },
 });
@@ -36,7 +36,7 @@ export const BioContext = createContext<BioContextProps>({
 interface BioProviderProps extends PropsWithChildren {}
 
 function BioContextProvider({ children }: BioProviderProps) {
-  const [active, setActive] = useState<ActiveProps>({
+  const [isSelected, setSelected] = useState<SelectedProps>({
     bold: false,
     italic: false,
     unordered: false,
@@ -45,31 +45,31 @@ function BioContextProvider({ children }: BioProviderProps) {
   const [initialText, setInitialText] = useState<string>(
     "I'm a web developer based in São Paulo, Brazil. I specialize in UI design integration with data, creating seamless and dynamic user experiences. My tech stack revolves around React and Node.js, allowing me to build full-stack applications that are both efficient and visually compelling."
   );
-  const { bold, italic, unordered, ordered } = active;
+  const { bold, italic, unordered, ordered } = isSelected;
 
   useEffect(() => {
-    console.log(active);
-  }, [active]);
+    console.log(isSelected);
+  }, [isSelected]);
 
   useEffect(() => {
     unordered &&
       setInitialText((prev) => formatText(prev, "unordered") ?? prev);
   }, [unordered]);
 
-  useEffect(()=>{
-    ordered && setInitialText((prev)=>formatText(prev,"order")??prev);
-  },[ordered])
+  useEffect(() => {
+    ordered && setInitialText((prev) => formatText(prev, "order") ?? prev);
+  }, [ordered]);
 
-  const handleActive = (btn: "bold" | "italic" | "unordered" | "ordered") => {
+  const handleSelected = (btn: keyof SelectedProps) => {
     switch (btn) {
       case "bold":
-        setActive((prev) => ({ ...prev, bold: !bold }));
+        setSelected((prev) => ({ ...prev, bold: !bold }));
         break;
       case "italic":
-        setActive((prev) => ({ ...prev, italic: !italic }));
+        setSelected((prev) => ({ ...prev, italic: !italic }));
         break;
       case "unordered":
-        setActive((prev) => ({
+        setSelected((prev) => ({
           ...prev,
           ordered: false,
           unordered: !unordered,
@@ -77,7 +77,11 @@ function BioContextProvider({ children }: BioProviderProps) {
 
         break;
       case "ordered":
-        setActive((prev) => ({ ...prev, unordered: false, ordered: !ordered }));
+        setSelected((prev) => ({
+          ...prev,
+          unordered: false,
+          ordered: !ordered,
+        }));
         break;
       default:
         "";
@@ -90,7 +94,7 @@ function BioContextProvider({ children }: BioProviderProps) {
         italic,
         unordered,
         ordered,
-        handleActive,
+        handleSelected,
         initialText,
         setInitialText,
       }}

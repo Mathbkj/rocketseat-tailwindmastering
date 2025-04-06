@@ -84,6 +84,7 @@ export function Control({ multiple = false, ...props }: InputProps) {
   );
 }
 function FileItem({ name, size, state }: FileItemProps) {
+  console.log(size);
   const { container, icon, deleteBtn } = fileItem({ state });
   const time = useTime();
   const progress = useTransform(time, [0, 2000], [0, 100]);
@@ -98,7 +99,7 @@ function FileItem({ name, size, state }: FileItemProps) {
 
   return (
     <div key={name} className={container()}>
-      
+
       <div className={icon()}>
         <UploadCloud className="h-4 w-4" />
       </div>
@@ -163,7 +164,7 @@ export function FileList() {
     <div className="mt-4 space-y-3">
       <div ref={parent} className="mt-4 space-y-3">
         {files.map((file) => {
-          return <FileItem key={file.name} name={file.name} size={file.size} />;
+          return <FileItem state={file.size>=25321508? "error":undefined} key={file.name} name={file.name} size={file.size} />;
         })}
       </div>
     </div>
@@ -239,7 +240,7 @@ export function Trigger() {
             </span>{" "}
             or drag and drop
           </span>
-          <span className="text-xs">SVG, PNG, JPG or GIF (max. 800x400px)</span>
+          <span className="text-xs">SVG, PNG, JPG or GIF (max. 24GB)</span>
         </div>
       </label>
     </FileInputContext.Provider>

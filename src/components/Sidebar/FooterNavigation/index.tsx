@@ -4,7 +4,7 @@ import {Cog, LifeBuoy} from "lucide-react";
 
 export const FooterNavigation:FC=()=>{
     return <nav className="space-y-0.5">
-        <NavItem title="Support" icon={LifeBuoy}/>
-        <NavItem title="Settings" icon={Cog}/>
+        <NavItem href="/support" title="support" icon={LifeBuoy}/>
+        <NavItem href="/settings" title="settings" icon={Cog}/>
     </nav>
 }

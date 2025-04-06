@@ -26,12 +26,12 @@ const Icon: FC<IconElementProps> = ({ icon: Icon, ...props }) => {
   return <Icon {...props} size={20} className={` ${props.className ?? ""}`} />;
 };
 export const EditorButton: FC<EditorButtonProps> = ({ title }) => {
-  const { handleActive, ...rest } = useContext(BioContext);
+  const { handleSelected, ...rest } = useContext(BioContext);
   const focusBase = "dark:text-white text-black";
   return (
     <button
       type="button"
-      onClick={() => handleActive(title)}
+      onClick={() => handleSelected(title)}
       className="p-2 rounded-md group transition-all hover:bg-zinc-100/70 dark:hover:bg-white/5 text-zinc-500 dark:text-zinc-00 shadow-none"
     >
       {title === "bold" && (
