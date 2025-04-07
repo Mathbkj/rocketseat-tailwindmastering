@@ -1,6 +1,6 @@
 import { Facebook, Instagram, Twitter } from "lucide-react"
 import Image from "next/image"
-import { Button } from "./Buttons/Button"
+import { Button } from "@/components/Buttons/Button"
 import type { FC } from "react";
 
 interface Props {
@@ -15,7 +15,7 @@ export const ProfileCard:FC<Props>=({name,func,src,className})=> {
   return (
     <div className={`${base} ${className || ""}`}>
       <div className="relative">
-        <Image src={src} alt="Profile photo" width={340} height={240} className=""/>
+        <Image src={src} alt="Profile photo" width={320} height={240}/>
       </div>
       <div className="p-4">
         <h2 className="text-xl font-semibold text-violet-800 dark:text-violet-300">{name}</h2>

@@ -1,10 +1,9 @@
 "use client";
 import * as Tabs from "@radix-ui/react-tabs";
-import { useContext, useState, type FC } from "react";
+import { useState, type FC } from "react";
 import { TabItem } from "./TabItem";
 import * as ScrollArea from "@radix-ui/react-scroll-area";
 import {
-  Link,
   Mail,
   LockKeyhole,
   SaveIcon,
@@ -16,6 +15,7 @@ import {
   Tv,
   ChartNoAxesCombined,
   Database,
+  DollarSign
 } from "lucide-react";
 
 import * as FileInput from "@/components/Uploader/Uploader";
@@ -25,13 +25,14 @@ import { Button } from "@/components/Buttons/Button";
 import { ProfileImg } from "../ProfileImg";
 import { passedTime } from "@/utils/passedTime";
 import PassContextProvider from "@/contexts/PassContext";
-import BioContextProvider, { BioContext } from "@/contexts/BioContext";
-import { ProfileCard } from "../ProfileCard";
+import BioContextProvider from "@/contexts/BioContext";
+import { ProfileCard } from "@/components/Cards/ProfileCard";
 import personaimporter from "@/utils/personaimporter";
 import { Logo } from "../Sidebar/Logo";
 import { PlanUnity } from "../PlanUnity";
 import { EditorButton } from "../Buttons/EditorButton";
 import { TextArea } from "../Inputs/TextArea/TextArea";
+import { BillingCard } from "../Cards/BillingCard";
 
 export const SettingsTabs: FC = () => {
   const [currentTab, setCurrentTab] = useState("tab1");
@@ -284,7 +285,7 @@ export const SettingsTabs: FC = () => {
           </BioContextProvider>
 
           <Tabs.Content value="tab2">
-            <div className="mt-6 flex flex-col">
+            <section className="mt-6 flex flex-col">
               <div className="flex flex-col lg:flex-row gap-4 lg:justify-between border-b border-zinc-200 dark:border-zinc-700 pb-5">
                 <div className="flex flex-col lg:flex-row items-center gap-2">
                   <ProfileImg />
@@ -368,7 +369,7 @@ export const SettingsTabs: FC = () => {
                   </Button>
                 </div>
               </section>
-            </div>
+            </section>
           </Tabs.Content>
 
           <PassContextProvider>
@@ -544,6 +545,27 @@ export const SettingsTabs: FC = () => {
                   <PlanUnity title="Standard" cost="10.99" />
                   <PlanUnity title="Premium" cost="17.99" />
                 </section>
+              </div>
+            </section>
+          </Tabs.Content>
+          <Tabs.Content value="tab6">
+            <section className="mt-6 flex flex-col">
+              <div className="flex flex-col lg:flex-row gap-4 lg:justify-between border-b border-zinc-200 dark:border-zinc-700 pb-5">
+                <span className="text-lg items-center flex gap-4 font-medium text-zinc-900 dark:text-zinc-100">
+                  Billing
+                  <span>
+                    <DollarSign/>
+                  </span>
+                </span>
+                <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                  Effortlessly handle your billing and invoice right here.
+                </span>
+              </div>
+              <div className="mt-6 flex flex-col gap-4">
+                <div className="flex flex-col lg:flex-row gap-3">
+                    <BillingCard title="Plan Summary"/>
+                    <BillingCard title="Payment Method"/>
+                </div>
               </div>
             </section>
           </Tabs.Content>
