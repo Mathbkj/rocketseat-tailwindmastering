@@ -18,7 +18,7 @@ function MasterCard() {
 
 function PlanCard() {
   return (
-    <div className="flex flex-col flex-1 bg-zinc-400/5 dark:bg-zinc-800 rounded-t-lg overflow-hidden shadow-sm">
+    <div className="flex flex-col rounded-md flex-1 bg-zinc-400/5 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-300/30 rounded-t-lg overflow-hidden shadow-sm">
       <section className="relative flex flex-nowrap rounded-t-lg bg-zinc-800/10 justify-between items-center p-4 w-full border-b border-b-zinc-300 dark:border-b-zinc-300/30 gap-4">
         <span className="relative dark:text-white text-xl font-medium text-nowrap">
           Current Plan Summary
@@ -30,25 +30,25 @@ function PlanCard() {
       <div className="bg-zinc-100 dark:bg-zinc-500/10">
         <section className="relative px-7 py-6 mt-4 flex gap-8">
           <div className="flex flex-col gap-2">
-            <span className="text-zinc-500 dark:text-zinc-400 font-light">
+            <span className="text-zinc-500 text-sm w-full dark:text-zinc-400 font-light">
               PLAN NAME
             </span>
-            <span className="text-lg font-medium dark:text-white">
+            <span className="text-md w-full font-medium dark:text-white">
               Growth Plan
             </span>
           </div>
           <div className="flex flex-col gap-2">
-            <span className="text-zinc-500 dark:text-zinc-400 font-light">
+            <span className="text-zinc-500 text-sm dark:text-zinc-400 font-light">
               BILLING CYCLE
             </span>
-            <span className="text-lg font-medium dark:text-white">Monthly</span>
+            <span className="text-md font-medium dark:text-white">Monthly</span>
           </div>
 
           <div className="flex flex-col gap-2">
-            <span className="text-zinc-500 dark:text-zinc-400 font-light">
+            <span className="text-zinc-500 text-sm dark:text-zinc-400 font-light">
               PLAN COST
             </span>
-            <span className="text-lg font-medium dark:text-white">$5698</span>
+            <span className="text-md font-medium dark:text-white">$5698</span>
           </div>
         </section>
         <section className="relative flex flex-col items-start px-7 py-6 my-8 w-full gap-8">
@@ -69,7 +69,7 @@ function PlanCard() {
 }
 function PaymentMethod() {
   return (
-    <div className="flex flex-col flex-1 bg-zinc-400/5 dark:bg-zinc-800 rounded-t-lg overflow-hidden shadow-sm">
+    <div className="flex flex-col flex-1 rounded-lg bg-zinc-400/5 border border-zinc-300 dark:border-zinc-300/30 dark:bg-zinc-800 rounded-t-lg overflow-hidden shadow-sm">
       <section className="relative flex flex-nowrap rounded-t-lg bg-zinc-800/10 justify-between items-center p-5 w-full border-b border-b-zinc-300 dark:border-b-zinc-300/30 gap-4">
         <span className="relative dark:text-white text-xl font-medium text-nowrap">
           Payment Method
@@ -81,8 +81,8 @@ function PaymentMethod() {
           <span className="flex items-baseline flex-col gap-2 mx-3 my-2 text-zinc-900 dark:text-white font-medium">
             <span className="font-semibold">Master Card</span>
             <span>**** **** **** 4002</span>
-            <span className="text-zinc-500 dark:text-zinc-400">Expiry on 20/2024</span>
-            <span className="flex gap-2 text-zinc-500 dark:text-zinc-400"><MailSearch/>billing@acme.corp</span>
+            <span className="text-zinc-600 dark:text-zinc-300">Expiry on 20/2024</span>
+            <span className="flex gap-2 text-zinc-500 dark:text-zinc-300"><MailSearch/>billing@acme.corp</span>
           </span>
           <Button variant="outline" className="absolute right-5 top-4">Change</Button>
         </div>

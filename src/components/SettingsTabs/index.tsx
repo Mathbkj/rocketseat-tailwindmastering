@@ -15,7 +15,7 @@ import {
   Tv,
   ChartNoAxesCombined,
   Database,
-  DollarSign
+  DollarSign,
 } from "lucide-react";
 
 import * as FileInput from "@/components/Uploader/Uploader";
@@ -33,6 +33,7 @@ import { PlanUnity } from "../PlanUnity";
 import { EditorButton } from "../Buttons/EditorButton";
 import { TextArea } from "../Inputs/TextArea/TextArea";
 import { BillingCard } from "../Cards/BillingCard";
+import { BillingTable } from "../Tables/BillingTable";
 
 export const SettingsTabs: FC = () => {
   const [currentTab, setCurrentTab] = useState("tab1");
@@ -554,18 +555,34 @@ export const SettingsTabs: FC = () => {
                 <span className="text-lg items-center flex gap-4 font-medium text-zinc-900 dark:text-zinc-100">
                   Billing
                   <span>
-                    <DollarSign/>
+                    <DollarSign />
                   </span>
                 </span>
                 <span className="text-sm text-zinc-500 dark:text-zinc-400">
                   Effortlessly handle your billing and invoice right here.
                 </span>
               </div>
-              <div className="mt-6 flex flex-col gap-4">
-                <div className="flex flex-col lg:flex-row gap-3">
-                    <BillingCard title="Plan Summary"/>
-                    <BillingCard title="Payment Method"/>
-                </div>
+              <div className="mt-6 flex flex-col gap-4 px-3 py-2">
+                <section className="flex flex-col lg:flex-row gap-3">
+                  <BillingCard title="Plan Summary" />
+                  <BillingCard title="Payment Method" />
+                </section>
+                <section className="flex flex-col mt-10 py-2 mb-2 w-full">
+                  <div className="flex flex-nowrap justify-between items-center">
+                    <span className="text-lg flex flex-col gap-4 font-medium text-zinc-900 dark:text-zinc-100">
+                      Invoice
+                      <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                        Effortlessly handle your billing and invoices right
+                        here.
+                      </span>
+                    </span>
+                    <Button>
+                      <span>Download</span>
+                    </Button>
+                  </div>
+
+                  <BillingTable />
+                </section>
               </div>
             </section>
           </Tabs.Content>

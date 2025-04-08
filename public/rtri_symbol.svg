@@ -1,0 +1,15 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 100 125"
+  className="w-6 h-6"
+>
+  <title>Triangle</title>
+  <g stroke="black" strokeWidth="1" fill="none" fillRule="evenodd">
+    <g>
+      <path
+        d="M88.6250719,20 C95.0396483,20 96.9272715,24.0315565 92.8442612,29.0010031 L52.2867182,78.3637367 C50.473578,80.5705162 47.5723594,80.5437129 45.7972613,78.2919408 L7.05897317,29.1511101 C3.07483157,24.0970916 5.04876702,20 11.4596646,20 L88.6250719,20 Z"
+        className="fill-black/20 dark:fill-white/30"
+      />
+    </g>
+  </g>
+</svg>

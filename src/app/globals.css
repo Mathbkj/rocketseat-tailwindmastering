@@ -3,10 +3,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --default:minmax(18rem, 20rem) 1fr;
+  --default: minmax(18rem, 20rem) 1fr;
   --profile: max-content 1fr max-content;
   --form: minmax(7.5rem, 17.5rem) minmax(25rem, 1fr) minmax(0, 15rem);
-  box-sizing:border-box !important;
+  box-sizing: border-box !important;
 }
 @theme inline {
   --color-background: var(--background);
@@ -37,20 +37,19 @@
   --animate-fade-down: fadeDown 400ms ease;
 }
 @keyframes fadeIn {
-	from {
-		opacity: 0;
-    transform:translateY(0px);
-	}
-	to {
-		opacity: 1;
-    transform:translateY(.1px);
-	}
+  from {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0.1px);
+  }
 }
 
-.CollapsableContent[data-state="open"]{
-	animation: fadeIn 400ms ease-out;
+.CollapsableContent[data-state="open"] {
+  animation: fadeIn 400ms ease-out;
 }
-
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -68,6 +67,7 @@ body {
 button {
   cursor: pointer !important;
 }
-div,section{
-    outline:none;
+div,
+section {
+  outline: none;
 }
