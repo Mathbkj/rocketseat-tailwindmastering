@@ -19,9 +19,11 @@ const button = tv({
         "flex my-px bg-zinc-700/10 text-zinc-400 h-13 w-13 dark:bg-zinc-300/10 dark:text-zinc-500 rounded-full max-lg:self-center justify-center items-center",
       success:
         "flex shadow-none! rounded-full bg-green-100/70 hover:bg-green-200/50 dark:hover:bg-green-900/40 border my-2 px-8 dark:bg-green-900/30 text-emerald-600 dark:text-emerald-400 ",
-      warning: "flex shadow-none! rounded-full bg-amber-100/70 hover:bg-amber-200/50 my-2 px-5 border text-yellow-600 dark:bg-amber-900/30 dark:hover:bg-amber-900/50 dark:text-yellow-400",
+      warning:
+        "flex shadow-none! rounded-full bg-amber-100/70 hover:bg-amber-200/50 my-2 px-5 border text-yellow-600 dark:bg-amber-900/30 dark:hover:bg-amber-900/50 dark:text-yellow-400",
       error:
         "flex shadow-none! rounded-full bg-red-100/70 hover:bg-red-200/50 dark:hover:bg-red-900/40 border my-2 px-5 dark:bg-red-900/30 text-rose-500 dark:text-rose-400 ",
+      transparent: "rounded-md shadow-none!",
     },
   },
   defaultVariants: {

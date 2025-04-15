@@ -67,7 +67,14 @@ body {
 button {
   cursor: pointer !important;
 }
+
 div,
 section {
   outline: none;
+}
+.news-bell circle{
+  fill:rgba(255,0,0,1)
+}
+.dark .news-bell circle{
+  fill:rgba(255,50,50,1)
 }

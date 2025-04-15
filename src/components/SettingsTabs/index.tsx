@@ -5,9 +5,7 @@ import { TabItem } from "./TabItem";
 import * as ScrollArea from "@radix-ui/react-scroll-area";
 import {
   Mail,
-  LockKeyhole,
   SaveIcon,
-  ChartGantt,
   Check,
   Gift,
   SmartphoneNfc,
@@ -15,82 +13,93 @@ import {
   Tv,
   ChartNoAxesCombined,
   Database,
-  DollarSign,
+  Landmark,
+  KeyRound,
+  Save,
+  WalletCards,
+  Download,
+  UserCog,
+  Users,
+  Spline,
+  Plus,
+  Search,
 } from "lucide-react";
 
 import * as FileInput from "@/components/Uploader/Uploader";
 import { TextInput } from "@/components/Inputs/Text";
-import * as Dropdown from "@/components/Inputs/Select/Select";
+import * as Select from "@/components/Inputs/Select/Select";
 import { Button } from "@/components/Buttons/Button";
 import { ProfileImg } from "../ProfileImg";
 import { passedTime } from "@/utils/passedTime";
 import PassContextProvider from "@/contexts/PassContext";
 import BioContextProvider from "@/contexts/BioContext";
 import { ProfileCard } from "@/components/Cards/ProfileCard";
-import personaimporter from "@/utils/personaimporter";
+import personaimporter from "@/utils/svgs/personaimporter";
 import { Logo } from "../Sidebar/Logo";
 import { PlanUnity } from "../PlanUnity";
 import { EditorButton } from "../Buttons/EditorButton";
 import { TextArea } from "../Inputs/TextArea/TextArea";
 import { BillingCard } from "../Cards/BillingCard";
 import { BillingTable } from "../Tables/BillingTable";
+import { TabHeader } from "./TabHeader";
+import { IntegrationTable } from "../Tables/IntegrationTable";
 
 export const SettingsTabs: FC = () => {
   const [currentTab, setCurrentTab] = useState("tab1");
+  const [subTab, setSubTab] = useState("tab1");
   return (
     <Tabs.Root value={currentTab} onValueChange={setCurrentTab}>
-      <ScrollArea.Root className="" type="scroll">
+      <ScrollArea.Root type="scroll">
         <ScrollArea.Viewport className="">
           <Tabs.List className="mt-6 flex w-full items-center gap-4 border-b border-zinc-200 dark:border-zinc-700">
             <TabItem
               value="tab1"
               title="My details"
+              layoutId="activeTab"
               isSelected={currentTab === "tab1"}
             />
             <TabItem
               value="tab2"
               title="Profile"
+              layoutId="activeTab"
               isSelected={currentTab === "tab2"}
             />
             <TabItem
               value="tab3"
               title="Password"
+              layoutId="activeTab"
               isSelected={currentTab === "tab3"}
             />
             <TabItem
               value="tab4"
               title="Team"
+              layoutId="activeTab"
               isSelected={currentTab === "tab4"}
             />
             <TabItem
               value="tab5"
               title="Plan"
+              layoutId="activeTab"
               isSelected={currentTab === "tab5"}
             />
             <TabItem
               value="tab6"
               title="Billing"
+              layoutId="activeTab"
               isSelected={currentTab === "tab6"}
             />
+
             <TabItem
               value="tab7"
-              title="Email"
+              title="Integrations"
+              layoutId="activeTab"
               isSelected={currentTab === "tab7"}
             />
             <TabItem
               value="tab8"
-              title="Notifications"
-              isSelected={currentTab === "tab8"}
-            />
-            <TabItem
-              value="tab9"
-              title="Integrations"
-              isSelected={currentTab === "tab9"}
-            />
-            <TabItem
-              value="tab10"
               title="API"
-              isSelected={currentTab === "tab10"}
+              layoutId="activeTab"
+              isSelected={currentTab === "tab8"}
             />
           </Tabs.List>
 
@@ -202,29 +211,29 @@ export const SettingsTabs: FC = () => {
                     <h1 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
                       Country
                     </h1>
-                    <Dropdown.Container
+                    <Select.Container
                       placeholder="Select a country..."
                       className="flex-1"
                     >
-                      <Dropdown.Item value="br" text="Brazil" />
-                      <Dropdown.Item value="us" text="United States" />
-                    </Dropdown.Container>
+                      <Select.Item value="br" text="Brazil" />
+                      <Select.Item value="us" text="United States" />
+                    </Select.Container>
                   </div>
 
                   <div className="flex flex-col gap-10 lg:gap-2 lg:flex-row lg:items-center">
                     <h1 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
                       Timezone
                     </h1>
-                    <Dropdown.Container placeholder="Select a timezone...">
-                      <Dropdown.Item
+                    <Select.Container placeholder="Select a timezone...">
+                      <Select.Item
                         value="utc8"
                         text="Pacific Standard Time(UTC-08:00)"
                       />
-                      <Dropdown.Item
+                      <Select.Item
                         value="utc3"
                         text="America São Paulo(UTC-03:00)"
                       />
-                    </Dropdown.Container>
+                    </Select.Container>
                   </div>
 
                   <div className="flex flex-col gap-3">
@@ -239,13 +248,10 @@ export const SettingsTabs: FC = () => {
                     </label>
                     <div className="space-y-3">
                       <div className="flex flex-col lg:grid gap-3 lg:grid-cols-2">
-                        <Dropdown.Container
-                          placeholder=""
-                          defaultValue="normal"
-                        >
-                          <Dropdown.Item value="normal" text="Normal Text" />
-                          <Dropdown.Item value="md" text="Markdown" />
-                        </Dropdown.Container>
+                        <Select.Container placeholder="" defaultValue="normal">
+                          <Select.Item value="normal" text="Normal Text" />
+                          <Select.Item value="md" text="Markdown" />
+                        </Select.Container>
                         <div className="flex items-center gap-1">
                           <EditorButton title="bold" />
                           <EditorButton title="italic" />
@@ -287,24 +293,18 @@ export const SettingsTabs: FC = () => {
 
           <Tabs.Content value="tab2">
             <section className="mt-6 flex flex-col">
-              <div className="flex flex-col lg:flex-row gap-4 lg:justify-between border-b border-zinc-200 dark:border-zinc-700 pb-5">
-                <div className="flex flex-col lg:flex-row items-center gap-2">
-                  <ProfileImg />
-                  <section className="flex flex-col">
-                    <strong className="text-zinc-700 dark:text-zinc-100">
-                      Matheus Godinho
-                    </strong>
-                    <span className=" text-zinc-500 dark:text-zinc-400">
-                      matheusgblasel@hotmail.com
-                    </span>
-                  </section>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
-                    Profile Information
+              <ProfileImg />
+              <TabHeader
+                title="Matheus Godinho"
+                subtitle="Founder"
+                icon={UserCog}
+                hasButton
+                btnText={
+                  <span className="flex items-center flex-nowrap gap-2">
+                    Download <Download size={17} />
                   </span>
-                </div>
-              </div>
+                }
+              />
               <section className="mt-6 grid lg:grid-cols-2 gap-4 lg:grid-rows-2 grid-rows-6 grid-cols-1">
                 <div className="flex flex-col gap-2">
                   <h1 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
@@ -325,25 +325,25 @@ export const SettingsTabs: FC = () => {
                   <h1 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
                     Gender
                   </h1>
-                  <Dropdown.Container disabled placeholder="Male" />
+                  <Select.Container disabled placeholder="Male" />
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
                     Country
                   </h1>
-                  <Dropdown.Container disabled placeholder="Brazil" />
+                  <Select.Container disabled placeholder="Brazil" />
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
                     Github
                   </h1>
-                  <Dropdown.Container disabled placeholder="Mathbkj" />
+                  <Select.Container disabled placeholder="Mathbkj" />
                 </div>
                 <div className="flex flex-col gap-2">
                   <h1 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
                     Time Zone
                   </h1>
-                  <Dropdown.Container
+                  <Select.Container
                     disabled
                     placeholder="America São Paulo(UTC-03:00)"
                   />
@@ -376,17 +376,17 @@ export const SettingsTabs: FC = () => {
           <PassContextProvider>
             <Tabs.Content value="tab3">
               <section className="mt-6 flex flex-col">
-                <div className="flex flex-col lg:flex-row gap-4 lg:justify-between border-b border-zinc-200 dark:border-zinc-700 pb-5">
-                  <span className="text-lg flex gap-4 font-medium text-zinc-900 dark:text-zinc-100">
-                    Password
-                    <span>
-                      <LockKeyhole />
+                <TabHeader
+                  title="Password"
+                  subtitle="Change your current password"
+                  icon={KeyRound}
+                  hasButton
+                  btnText={
+                    <span className="flex items-center flex-nowrap gap-2">
+                      Save Changes <Save size={16} />
                     </span>
-                  </span>
-                  <span className="text-sm text-zinc-500 dark:text-zinc-400">
-                    Chage Current Your Password Here
-                  </span>
-                </div>
+                  }
+                />
                 <section className="mt-6 flex flex-col gap-3">
                   <div className="flex flex-col my-2 mx-2 gap-2">
                     <h1 className="text-nowrap text-zinc-900 dark:text-zinc-200">
@@ -417,7 +417,12 @@ export const SettingsTabs: FC = () => {
 
           <Tabs.Content value="tab4">
             <section className="mt-6 flex flex-col">
-              <div className="flex gap-2 flex-col items-center">
+              <TabHeader
+                title="Team"
+                subtitle="Get to know our team members"
+                icon={Users}
+              />
+              <div className="flex gap-2 mt-10 flex-col items-center">
                 <div className="gap-1 flex flex-col items-center justify-center">
                   <span className="text-center font-semibold text-zinc-900 dark:text-zinc-200 text-md">
                     Our Team
@@ -475,17 +480,11 @@ export const SettingsTabs: FC = () => {
           </Tabs.Content>
           <Tabs.Content value="tab5">
             <section className="mt-6 flex flex-col">
-              <div className="flex flex-col lg:flex-row gap-4 lg:justify-between border-b border-zinc-200 dark:border-zinc-700 pb-5">
-                <span className="text-lg flex gap-4 font-medium text-zinc-900 dark:text-zinc-100">
-                  Plans
-                  <span>
-                    <ChartGantt />
-                  </span>
-                </span>
-                <span className="text-sm text-zinc-500 dark:text-zinc-400">
-                  Decide which plan best fits your needs
-                </span>
-              </div>
+              <TabHeader
+                title="Plans"
+                subtitle="Get to know our plans"
+                icon={ChartNoAxesCombined}
+              />
               <div className="mt-6 bg-zinc-800/10 dark:bg-zinc-800/30 shadow-sm rounded-md flex flex-col gap-3">
                 <section className="flex items-center lg:flex-row justify-between flex-col px-3 py-2 m-5">
                   <span className="text-lg  flex flex-col gap-2 text-zinc-950 dark:text-zinc-100">
@@ -551,39 +550,96 @@ export const SettingsTabs: FC = () => {
           </Tabs.Content>
           <Tabs.Content value="tab6">
             <section className="mt-6 flex flex-col">
-              <div className="flex flex-col lg:flex-row gap-4 lg:justify-between border-b border-zinc-200 dark:border-zinc-700 pb-5">
-                <span className="text-lg items-center flex gap-4 font-medium text-zinc-900 dark:text-zinc-100">
-                  Billing
-                  <span>
-                    <DollarSign />
-                  </span>
-                </span>
-                <span className="text-sm text-zinc-500 dark:text-zinc-400">
-                  Effortlessly handle your billing and invoice right here.
-                </span>
-              </div>
+              <TabHeader
+                title="Billing"
+                subtitle="Effortlessly manage your plans and payment type"
+                icon={WalletCards}
+              />
               <div className="mt-6 flex flex-col gap-4 px-3 py-2">
                 <section className="flex flex-col lg:flex-row gap-3">
                   <BillingCard title="Plan Summary" />
                   <BillingCard title="Payment Method" />
                 </section>
                 <section className="flex flex-col mt-10 py-2 mb-2 w-full">
-                  <div className="flex flex-nowrap justify-between items-center">
-                    <span className="text-lg flex flex-col gap-4 font-medium text-zinc-900 dark:text-zinc-100">
-                      Invoice
-                      <span className="text-sm text-zinc-500 dark:text-zinc-400">
-                        Effortlessly handle your billing and invoices right
-                        here.
+                  <TabHeader
+                    title="Invoice"
+                    subtitle="Effortlessly manage your plans and payment type"
+                    icon={Landmark}
+                    hasButton
+                    btnText={
+                      <span className="flex items-center flex-nowrap gap-2">
+                        Download <Download size={17} />
                       </span>
-                    </span>
-                    <Button>
-                      <span>Download</span>
-                    </Button>
-                  </div>
+                    }
+                  />
 
                   <BillingTable />
                 </section>
               </div>
+            </section>
+          </Tabs.Content>
+          <Tabs.Content value="tab7">
+            <section className="mt-6 flex flex-col">
+              <TabHeader
+                title="Integrations"
+                subtitle="Connect Untitled UI with the tools you already use"
+                icon={Spline}
+                hasButton
+                hasSubTab
+                btnText={
+                  <span className="flex items-center gap-2">
+                    <Plus size={17} />
+                    <span>Add Integration</span>
+                  </span>
+                }
+              />
+              <Tabs.Root value={subTab} onValueChange={setSubTab}>
+                <Tabs.List className="mt-6 flex items-center gap-4 border-b border-zinc-200 dark:border-zinc-700">
+                  <TabItem
+                    layoutId="activeSubTab"
+                    value="tab1"
+                    title="Current Integrations"
+                    isSelected={subTab === "tab1"}
+                  />
+                  <TabItem
+                    layoutId="activeSubTab"
+                    value="tab2"
+                    title="Integration Directory"
+                    isSelected={subTab === "tab2"}
+                  />
+                </Tabs.List>
+                <Tabs.Content value="tab1">
+                  <div className="mt-6 flex flex-col justify-between flex-nowrap">
+                    <section className="flex justify-between items-center flex-nowrap">
+                      <TextInput
+                        hasPrefix
+                        icon={Search}
+                        placeholder="Search Integrations..."
+                        className="w-1/4! h-1/4! m-3"
+                      />
+                      <section className="flex w-1/3 m-1">
+                        <Select.Container
+                          placeholder="All"
+                          variant="withLabelRow"
+                          label="Category"
+                        >
+                          <Select.Item value="all" text="All" />
+                          <Select.Item value="favorites" text="Favorites  " />
+                        </Select.Container>
+                        <Select.Container
+                          placeholder="All"
+                          variant="withLabelRow"
+                          label="Status"
+                        >
+                          <Select.Item value="allTwo" text="All" />
+                          <Select.Item value="favorites" text="Favorites" />
+                        </Select.Container>
+                      </section>
+                    </section>
+                    <IntegrationTable/>
+                  </div>
+                </Tabs.Content>
+              </Tabs.Root>
             </section>
           </Tabs.Content>
         </ScrollArea.Viewport>

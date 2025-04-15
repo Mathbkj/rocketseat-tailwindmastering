@@ -23,7 +23,7 @@ interface IconElementProps extends LucideProps {
   >;
 }
 const Icon: FC<IconElementProps> = ({ icon: Icon, ...props }) => {
-  return <Icon {...props} size={20} className={` ${props.className ?? ""}`} />;
+  return <Icon {...props} size={20} className={props.className ?? ""} />;
 };
 export const EditorButton: FC<EditorButtonProps> = ({ title }) => {
   const { handleSelected, ...rest } = useContext(BioContext);

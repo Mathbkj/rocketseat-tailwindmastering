@@ -1,6 +1,6 @@
 import { Fragment, type FC, type PropsWithChildren } from "react";
 import { Button } from "../Buttons/Button";
-import { billingTagGen } from "@/utils/billingTagGen";
+import { billingTagGen } from "@/utils/tagGen";
 import { Ban, FileWarning, OctagonAlert, ShieldCheck } from "lucide-react";
 
 interface ThProps {

@@ -15,12 +15,18 @@ interface SelectedProps {
   unordered: boolean;
   ordered: boolean;
 }
-interface BioContextProps extends SelectedProps {
-  initialText: string;
-  setInitialText: Dispatch<SetStateAction<string>>;
-  handleSelected: (btn: keyof SelectedProps) => void;
+interface LayoutProps {
+  textType: "normal" | "md" | string;
 }
+type BioContextProps = SelectedProps &
+  LayoutProps & {
+    initialText: string;
+    setInitialText: Dispatch<SetStateAction<string>>;
+    handleSelected: (btn: keyof SelectedProps) => void;
+    handleLayout: ({ textType }: LayoutProps) => void;
+  };
 export const BioContext = createContext<BioContextProps>({
+  textType: "normal",
   bold: false,
   italic: false,
   unordered: false,
@@ -29,14 +35,18 @@ export const BioContext = createContext<BioContextProps>({
     "I'm a web developer based in São Paulo, Brazil. I specialize in UI design integration with data, creating seamless and dynamic user experiences. My tech stack revolves around React and Node.js, allowing me to build full-stack applications that are both efficient and visually compelling.",
   setInitialText: () => {},
   handleSelected: () => {
-    console.log("default value");
+    console.log("default selected value");
+  },
+  handleLayout: () => {
+    console.log("default layout value");
   },
 });
 
 interface BioProviderProps extends PropsWithChildren {}
 
 function BioContextProvider({ children }: BioProviderProps) {
-  const [isSelected, setSelected] = useState<SelectedProps>({
+  const [isSelected, setSelected] = useState<SelectedProps & LayoutProps>({
+    textType: "normal",
     bold: false,
     italic: false,
     unordered: false,
@@ -45,7 +55,8 @@ function BioContextProvider({ children }: BioProviderProps) {
   const [initialText, setInitialText] = useState<string>(
     "I'm a web developer based in São Paulo, Brazil. I specialize in UI design integration with data, creating seamless and dynamic user experiences. My tech stack revolves around React and Node.js, allowing me to build full-stack applications that are both efficient and visually compelling."
   );
-  const { bold, italic, unordered, ordered } = isSelected;
+
+  const { textType, bold, italic, unordered, ordered } = isSelected;
 
   useEffect(() => {
     console.log(isSelected);
@@ -59,6 +70,10 @@ function BioContextProvider({ children }: BioProviderProps) {
   useEffect(() => {
     ordered && setInitialText((prev) => formatText(prev, "order") ?? prev);
   }, [ordered]);
+
+  const handleLayout = ({ textType }: LayoutProps) => {
+    setSelected((prev) => ({ ...prev, textType }));
+  };
 
   const handleSelected = (btn: keyof SelectedProps) => {
     switch (btn) {
@@ -90,10 +105,12 @@ function BioContextProvider({ children }: BioProviderProps) {
   return (
     <BioContext.Provider
       value={{
+        textType,
         bold,
         italic,
         unordered,
         ordered,
+        handleLayout,
         handleSelected,
         initialText,
         setInitialText,

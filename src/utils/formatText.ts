@@ -1,6 +1,6 @@
 export function formatText(
   text: string,
-  option: "order" | "unordered" | "title"
+  option: "order" | "unordered" | "title" | "markdown"
 ): string | undefined {
   const lines = text
     .split("\n")
